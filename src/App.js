@@ -1,23 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
 
+import './App.css';
+import Home from './pages/Home';
+import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+import Cart from './components/Cart';
+import { CartProvider } from 'react-use-cart';
+
+
+// CartProvider componente crea un contesto per l'utilizzo di un carrello. Crea un oggetto carrello
+// e callback a cui qualsiasi componente discendente può accedere utilizzando
+// l' useCarthook e i relativi hook. CartProvider esegue anche 
+//eventuali props di callback quando viene eseguita un'azione pertinente. 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div >
+      <CartProvider>
+      < Home />
+      <Cart />
+      </CartProvider>
     </div>
   );
 }
